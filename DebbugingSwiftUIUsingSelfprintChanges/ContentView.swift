@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isOn: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        let _ = Self._printChanges()
+        
+        VStack {
+            Image(systemName: isOn ? "lightbulb.fill" : "lightbulb")
+                .font(.system(size: 50))
+            
+            Toggle(isOn: $isOn) {
+                EmptyView()
+            }.fixedSize()
+        }
     }
 }
 
